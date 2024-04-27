@@ -1,12 +1,14 @@
 # APC-TextGame-Group7
 
 Storyline: "Mystical Forest Adventure"
+
 In a mystical forest, adventurers seek fame, fortune, and the legendary Elixir of Eternal Youth. 
 You are one such adventurer, equipped with agility, strength, and wit, ready to navigate the forest's challenges.
 
 Game Features:
 
 ## Characters:
+
 Player (Adventurer):
 Attributes: Health Points (HP), Agility (Speed), Position
 Actions: Move, Interact (Inspect Surroundings), Use Items, Attack
@@ -16,6 +18,7 @@ Forest Guardian: A wise owl offering guidance.
 Glimmerwing: A mischievous sprite aiding or hindering your quest.
 Attributes: HP, Speed, Position
 Actions: Charm, Threaten, Befriend
+
 Weapons and Items:
 Dinosaur: For combat.
 Magical Potion: Restores HP.
@@ -33,52 +36,3 @@ Objective:
 Explore the forest.
 Defeat guardians like dragons, monsters, and enchanted creatures.
 Uncover the Elixir of Eternal Youth hidden deep within the forest
-
-  +------------------+
-  |     GameWorld    |
-  +------------------+
-  | - locations      |
-  | - players        |
-  | - npcs           |
-  | - defeaters      |
-  +------------------+
-           |
-           |
-  +------------------+
-  |    Location      |
-  +------------------+
-  | - name           |
-  | - description    |
-  | - defeater       |
-  +------------------+
-           |
-           |
-  +------------------+
-  |    Defeater      |
-  +------------------+
-  | - name           |
-  | - hp             |
-  | - weapon         |
-  | - position       |
-  +------------------+
-           |
-           |
-  +------------------+
-  |     Player       |
-  +------------------+
-  | - name           |
-  | - hp             |
-  | - agility        |
-  | - position       |
-  | - inventory      |
-  +------------------+
-           |
-           |
-  +------------------+
-  |      NPC         |
-  +------------------+
-  | - name           |
-  | - hp             |
-  | - speed          |
-  | - position       |
-  +------------------+
