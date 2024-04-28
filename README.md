@@ -11,12 +11,14 @@ Game Features:
 
 Player (Adventurer):
 Attributes: Health Points (HP), Agility (Speed), Position
+
 Actions: Move, Interact (Inspect Surroundings), Use Items, Attack
 
 NPCs:
 Forest Guardian: A wise owl offering guidance.
 Glimmerwing: A mischievous sprite aiding or hindering your quest.
 Attributes: HP, Speed, Position
+
 Actions: Charm, Threaten, Befriend
 
 Weapons and Items:
