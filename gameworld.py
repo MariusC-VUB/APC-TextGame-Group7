@@ -17,3 +17,9 @@ class GameWorld:
 
     def add_defeater(self, defeater):
         self.defeaters.append(defeater)
+
+    def get_location_description(self, position):
+        for location in self.locations.values():
+            if location.position == position:
+                return location.description
+        return "Unknown Location"

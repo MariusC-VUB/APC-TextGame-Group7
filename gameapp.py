@@ -15,11 +15,18 @@ class GameApp(tk.Tk):
         self.game_world = GameWorld()
 
         # Initialize locations
+        initial_location = Location("Starting Point", "Beginning of the adventure.")
+        initial_location.set_position((0, 0))
         green_forest = Location("Green Forest", "Lush vegetation and vibrant flora.")
+        green_forest.set_position((1, 0))
         dark_cave = Location("Dark Cave", "A mysterious and shadowy underworld.")
+        dark_cave.set_position((-1, 0))
         dino_nest = Location("Dino Nest", "A prehistoric sanctuary.")
+        dino_nest.set_position((0, 1))
         ripple_river = Location("Ripple River", "A serene and crystal-clear stream.")
+        ripple_river.set_position((0, -1))
 
+        self.game_world.add_location(initial_location)
         self.game_world.add_location(green_forest)
         self.game_world.add_location(dark_cave)
         self.game_world.add_location(dino_nest)
@@ -55,7 +62,7 @@ class GameApp(tk.Tk):
         # self.game_world.add_player(self.player)
 
         # Create GUI elements
-        self.label = tk.Label(self, text=self.game_world.locations[self.player.position].description)
+        self.label = tk.Label(self, text=self.game_world.get_location_description(self.player.position))
         self.label.pack(pady=20)
 
         self.move_button = tk.Button(self, text="Move", command=self.move_dialog)
@@ -70,7 +77,7 @@ class GameApp(tk.Tk):
     def move_dialog(self):
         direction = simpledialog.askstring("Input", "Which direction? (north/south/east/west)")
         self.player.move(direction)
-        self.label.config(text=self.game_world.locations[self.player.position].description)
+        self.label.config(text=self.game_world.get_location_description(self.player.position))
 
     def use_item_dialog(self):
         item = simpledialog.askstring("Input", "Which item?")
