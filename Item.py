@@ -40,5 +40,3 @@ class Treasure(Item):
 
     def useTreasure(self):
         self.hidden = False
-
-https://github.com/MariusC-VUB/APC-TextGame-Group7.git
