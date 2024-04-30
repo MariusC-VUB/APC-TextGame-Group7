@@ -9,6 +9,7 @@ class Defeater:
         self.hp = hp
         self.weapon = weapon
         self.position = position
+        self.alive = True
 
     def attack(self, player):
         damage = random.randint(5, 15)
@@ -18,4 +19,10 @@ class Defeater:
         if player.hp <= 0:
             messagebox.showinfo("Game Over", "You have been defeated.")
             exit()
+
+    def isAlive(self):
+        if self.hp <= 0:
+            self.alive = False
+        else:
+            self.alive = True
 
