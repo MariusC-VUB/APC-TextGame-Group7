@@ -1,6 +1,6 @@
 import random
 from tkinter import messagebox
-
+from defeater import Defeater
 
 # Player Class
 class Player:
@@ -10,6 +10,8 @@ class Player:
         self.agility = agility
         self.position = position
         self.inventory = []
+        self.score = 0
+        self.extra_strength = 0
 
     def move(self, direction):
         directions = {
@@ -65,3 +67,43 @@ class Player:
                 self.inventory.append(defeater.weapon.name)
         else:
             messagebox.showinfo("Attack", "There's nothing to attack here.")
+
+    def add_points(self,points):
+        self.score += points
+
+    def increase_strength(self,power):
+        self.extra_strength += power
+
+    def increase_health(self,health):
+        self.hp += health
+
+    def take_food(self,Food):
+        self.inventory.append(Food.get_name())
+        messagebox.showinfo(f"Take {Food.get_name}")
+
+    def eat_food(self,Food):
+        if Food.get_name() in self.inventory:
+            self.add_points(Food.get_points())
+            self.inventory.remove(Food.get_name())
+            messagebox.showinfo(f"Eat {Food.get_name}","You feel refreshed")
+        else:
+            messagebox.showinfo(f"{Food.get_name()} is not available in your inventory")
+
+    def take_weapon(self,Weapon):
+        self.inventory.append(Weapon.get_name())
+
+    def use_weapon(self, Weapon):
+        if Weapon.get_name() in self.inventory:
+            self.increase_strength(Weapon.get_damage())
+            self.inventory.remove(Weapon.get_name())
+            messagebox.showinfo(f"Use {Weapon.get_name}","You feel refreshed")
+        else:
+            messagebox.showinfo(f"{Weapon.get_name()} is not available in your inventory")
+
+    def take_treasure(self, Treasure):
+        if Defeater.isAlive() == False:
+            Treasure.use_treasure()
+            self.add_points(Treasure.get_treasure())
+            messagebox.showinfo(f"{Treasure.get_description()} has been picked.... Hurah!!!!!!")
+        else:
+            messagebox.showinfo("First kill all the enemies around you")
