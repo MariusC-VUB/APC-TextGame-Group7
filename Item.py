@@ -11,32 +11,44 @@ class Item:
     
 class Food(Item):
     def __init__(self, name, description, point):
-        Item.__init__(self, name, description)
+        super().__init__(name, description)
         self._point = point
 
-    def get_point(self):
+    def get_points(self):
         return self._point
 
 class Weapon(Item):
    def __init__(self,name, description,damage):
-       Item.__init__(self,name, description)
+       super().__init__(name, description)
        self._damage = damage
 
    def get_damage(self):
        return self._damage
 
 class Treasure(Item):
-    hidden = True
     def __init__(self,name, description, bonus_score):
-        Item.__init__(self,name, description)
+        super().__init__(name, description)
         self.bonus_score = bonus_score
-        ishidden = True
+        self._hidden = True
 
-    def get_points(self):
+    def get_treasure(self):
         return self.bonus_score
 
-    def ishidden(self):
-        return self.hidden
+    def is_hidden(self):
+        return self._hidden
 
-    def useTreasure(self):
-        self.hidden = False
+    def use_treasure(self):
+        self._hidden = False
+
+
+class Boat(Item):
+    def __init__(self, description):
+        super().__init__(self, description)
+        self._start = False
+
+    def get_state(self):
+        return self._start
+
+    def start_boat(self):
+        self._start = True
+
