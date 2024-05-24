@@ -1,28 +1,12 @@
-import random
-from tkinter import messagebox
-
-
-# Defeater Class
 class Defeater:
-    def __init__(self, name, hp, weapon, position):
+    def __init__(self, name, hp, strength):
         self.name = name
         self.hp = hp
-        self.weapon = weapon
-        self.position = position
-        self.alive = True
+        self.strength = strength
 
     def attack(self, player):
-        damage = random.randint(5, 15)
-        player.hp -= damage
-        messagebox.showinfo("Attack", f"The {self.name} attacks you and deals {damage} damage.")
-
+        player.hp -= self.strength
         if player.hp <= 0:
-            messagebox.showinfo("Game Over", "You have been defeated.")
-            exit()
-
-    def isAlive(self):
-        if self.hp <= 0:
-            self.alive = False
-        else:
-            self.alive = True
-
+            player.hp = 0
+            return f"The {self.name} hits you for {self.strength} damage. You have been defeated."
+        return f"The {self.name} hits you for {self.strength} damage. You have {player.hp} HP left."
