@@ -15,6 +15,7 @@ class Location:
         self.add_treasures = lambda treasure : self.treasures.append(treasure)
         self.add_boat = lambda boat: self.boats.append(boat)
 
+    # Method to set the defeater for the location
     def set_defeater(self, defeater):
         self.defeater = defeater
 
@@ -53,7 +54,7 @@ class RipleRiver(Location):
         # Initialize the treasure and boat
         treasure = Treasure("Diamond", "A pouch of diamonds", 1000)
         boat = Boat("Speed Boat")
-        self.add_treasures(self.treasures)
+        self.add_treasures(treasure)
         self.add_boat(boat)
 
 
@@ -123,7 +124,7 @@ class DinoNest(Location):
         self.set_defeater(self.dragon)
         self.add_food(self.honey)
         self.set_defeater(self.dragon)
-        self.set_correct_defensive_action("use sword")
+        self.set_correct_defensive_action("use dragon glass")
 
 
 class DarkCave(Location):
